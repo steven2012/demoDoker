@@ -13,4 +13,7 @@ spring:
   data:
     azuredb:
       conecttion: DefaultEndpointsProtocol=https;AccountName=genesysdevstorage;AccountKey=f5kysrC5JWr7+g7P46bJEOhoN1kUHAsGtpCHUGPztALcf0eqZk7UFnQKY6BXBXzeE1XdfQzzbnhl6LP3Rak2lQ==;EndpointSuffix=core.windows.net
+      
+partition.key: 0d9d8741-57fc-4bfe-950c-9dc5dc1a7gtb
+row.key: 0d9d8741-57fc-4bfe-950c-9dc5dc1a7egtt
     

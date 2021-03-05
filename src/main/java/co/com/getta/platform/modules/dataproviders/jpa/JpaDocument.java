@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -43,6 +44,12 @@ public class JpaDocument<T> implements AzureDocumentDataProvider {
 	@Autowired
 	private ObjectMapper mapper;
 
+	@Value(GetaConstants.PARTITION_KEY)
+	private String partitionKey;
+
+	@Value(GetaConstants.ROW_KEY)
+	private String rowKey;
+
 	@Override
 	public ApiResponse<RulesDto> getRule(String keyTournament) {
 		RulesDto rule = new RulesDto();
@@ -53,8 +60,8 @@ public class JpaDocument<T> implements AzureDocumentDataProvider {
 
 			CloudTable cloudTable = tableClient.getTableReference(GetaConstants.NAME_TABLE_RULES);
 
-			String partitioKey = GetaConstants.PARTITION_KEY;
-			String rowkey = GetaConstants.ROW_KEY;
+			String partitioKey = partitionKey;
+			String rowkey = rowKey;
 			TableOperation table = TableOperation.retrieve(partitioKey, rowkey, Document.class);
 			TableResult result = cloudTable.execute(table);
 			HashMap<String, EntityProperty> map = result.getProperties();

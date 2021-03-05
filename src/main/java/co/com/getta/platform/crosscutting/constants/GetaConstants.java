@@ -5,8 +5,10 @@ public class GetaConstants {
 	private GetaConstants() {
 	}
 
-	public static final String ROW_KEY = "0d9d8741-57fc-4bfe-950c-9dc5dc1a7egtt";
-	public static final String PARTITION_KEY = "0d9d8741-57fc-4bfe-950c-9dc5dc1a7gtb";
+//	public static final String ROW_KEY = "0d9d8741-57fc-4bfe-950c-9dc5dc1a7egtt";
+//	public static final String PARTITION_KEY = "0d9d8741-57fc-4bfe-950c-9dc5dc1a7gtb";
+	public static final String ROW_KEY = "${row.key}";
+	public static final String PARTITION_KEY = "${partition.key}";
 	public static final String NAME_TABLE_RULES = "Documents";
 	public static final String KEY_JSON_RULES = "Data";
 	public static final String KEY_ROOT_JSON = "TournamentRules";
