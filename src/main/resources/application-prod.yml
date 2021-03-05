@@ -1,0 +1,16 @@
+
+logging:
+   level:
+      org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+      
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true 
+  data:
+    azuredb:
+      conecttion: DefaultEndpointsProtocol=https;AccountName=genesysdevstorage;AccountKey=f5kysrC5JWr7+g7P46bJEOhoN1kUHAsGtpCHUGPztALcf0eqZk7UFnQKY6BXBXzeE1XdfQzzbnhl6LP3Rak2lQ==;EndpointSuffix=core.windows.net
+    

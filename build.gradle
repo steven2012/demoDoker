@@ -1,0 +1,80 @@
+buildscript {
+        ext {
+             //dependencies service
+            lombokVersion = '1.18.16'
+		    springBootVersion ='2.1.6.RELEASE'
+		    jackSonDataFormat='2.10.2'
+		    jacksonCore='2.10.2'
+		    mongoDbVersion='2.3.1.RELEASE'
+		    mongoDriverVersion ='3.12.1'
+		    mockitoVersion = '3.3.3'
+		    powerMockitoVersion = '1.7.4'
+		    mockitoall= '2.0.2-beta'
+		    log4jVersion='2.11.1'
+		    swaggerVersion = '2.9.2'
+		    azureStorage='7.0.0'
+		    
+		     // component version settings
+		    releaseNumber = '1'
+		    sprintNumber = '0'
+		}
+		
+		repositories {
+		    mavenCentral()
+		    maven {
+      		   url "https://plugins.gradle.org/m2/"
+      	    }
+      	}
+		
+		dependencies {
+		    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		
+		}
+    }
+
+/** ########### RUNTIME PLUGINS  **/
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+
+apply from: 'service-dependencies.gradle'
+
+group = 'co.com.getta.platform'
+archivesBaseName = 'geta-manager-goverment-list'
+version = "${releaseNumber}.${sprintNumber}-SNAPSHOT"
+
+
+sourceCompatibility = '1.8'
+
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+	implementation SPRING_BOOT_RUNTIME,LOMBOK,JACKSON,LOG4J2,SWAGGER,AZURE
+	testImplementation LOMBOK,SPRING_BOOT_UT,MOCKING
+		
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompile 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
+}
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/test/java']
+    }
+}
+
+
+
+
+
