@@ -17,7 +17,7 @@ ADD src/main/resources  /opt/getta/games/services/manager-government-list/resour
 #ENV SERVER_HOME /opt/getta/games/services/manager-government-list
 
 # Make internal port available to the world outside this container
-EXPOSE 8082
+EXPOSE 3000
 
 #permisos de carpeta
 RUN chmod -R 777 /opt/getta
